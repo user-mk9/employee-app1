@@ -58,19 +58,24 @@ fun printPayslipWithRounding(){
     val totalDeductions = payeAmount + prsiAmount + cycleToWorkDeduction
     val netSalary = monthlySalary + annualBonus - totalDeductions
 
+    //function returns the formatted string to two decimal places
+    fun formatAsTwoDecimalPlaces(value: Double): String {
+        return "%.2f".format(value)
+    }
+
     println("| \t                           Employee Payslip                                                     |")
     println("| ----------------------------------------------------------------------- |")
-    println("| Employee Name:  ${firstName.capitalize()} ${surname.capitalize()} ($gender) \t Employee ID: $employeeId                        |") // String Template used
+    println("| Employee Name:  ${firstName.uppercase()} ${surname.uppercase()} ($gender) \t Employee ID: $employeeId                        |") // String Template used
     println("| ----------------------------------------------------------------------- |")
     println("| Payment Details                              Deduction Details                                      |")
     println("| ----------------------------------------------------------------------- |")
-    println("| Gross Salary: ${"%.2f".format(grossSalary)} \t PAYE: ${"%.2f".format(payePercentage)} %                                 |") // String Template used
-    println("| Annual Bonus: ${"%.2f".format(annualBonus)} \t PRSI: ${"%.2f".format(prsiAmount)}%                                        |") // String Template used
-    println("| \t\t\t\t\t\t Cycle to work: ${"%.2f".format(cycleToWorkDeduction)}                             |") // String Template used
+    println("| Gross Salary: ${formatAsTwoDecimalPlaces(grossSalary)} \t PAYE: ${"%.2f".format(payePercentage)} %                                 |") // 'formatAsTwoDecimalPlaces' used in String Template used
+    println("| Annual Bonus: ${formatAsTwoDecimalPlaces(annualBonus)} \t PRSI: ${"%.2f".format(prsiAmount)}%                                        |") // String Template used
+    println("| \t\t\t\t\t\t Cycle to work: ${formatAsTwoDecimalPlaces(cycleToWorkDeduction)}                             |") // String Template used
     println("| ----------------------------------------------------------------------- |")
-    println("| Total Deduction: ${"%.2f".format(totalDeductions)}                                                |") // String Template used
+    println("| Total Deduction: ${formatAsTwoDecimalPlaces(totalDeductions)}                                                |") // String Template used
     println("| ----------------------------------------------------------------------- |")
-    println("| \t                        Net Salary: ${"%.2f".format(netSalary)}                           |") // String Template used
+    println("| \t                        Net Salary: ${formatAsTwoDecimalPlaces(netSalary)}                           |") // String Template used
     println("| ----------------------------------------------------------------------- |")
 
 }
