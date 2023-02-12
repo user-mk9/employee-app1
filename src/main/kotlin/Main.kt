@@ -63,21 +63,22 @@ fun printPayslipWithRounding(){
         return "%.2f".format(value)
     }
 
-    println("| \t                           Employee Payslip                                                     |")
-    println("| ----------------------------------------------------------------------- |")
-    println("| Employee Name:  ${firstName.uppercase()} ${surname.uppercase()} ($gender) \t Employee ID: $employeeId                        |") // String Template used
-    println("| ----------------------------------------------------------------------- |")
-    println("| Payment Details                              Deduction Details                                      |")
-    println("| ----------------------------------------------------------------------- |")
-    println("| Gross Salary: ${formatAsTwoDecimalPlaces(grossSalary)} \t PAYE: ${"%.2f".format(payePercentage)} %                                 |") // 'formatAsTwoDecimalPlaces' used in String Template used
-    println("| Annual Bonus: ${formatAsTwoDecimalPlaces(annualBonus)} \t PRSI: ${"%.2f".format(prsiAmount)}%                                        |") // String Template used
-    println("| \t\t\t\t\t\t Cycle to work: ${formatAsTwoDecimalPlaces(cycleToWorkDeduction)}                             |") // String Template used
-    println("| ----------------------------------------------------------------------- |")
-    println("| Total Deduction: ${formatAsTwoDecimalPlaces(totalDeductions)}                                                |") // String Template used
-    println("| ----------------------------------------------------------------------- |")
-    println("| \t                        Net Salary: ${formatAsTwoDecimalPlaces(netSalary)}                           |") // String Template used
-    println("| ----------------------------------------------------------------------- |")
-
-}
+    println("""
+| ----------------------------------------------------------------------- 
+|                           Employee Payslip                                                     
+| ----------------------------------------------------------------------- 
+| Employee Name:  ${firstName.uppercase()} ${surname.uppercase()} ($gender)                  Employee ID: $employeeId                        
+| ----------------------------------------------------------------------- 
+| Payment Details                               Deduction Details                                      
+| ----------------------------------------------------------------------- 
+| Gross Salary: ${formatAsTwoDecimalPlaces(grossSalary)}                        PAYE: ${formatAsTwoDecimalPlaces(payePercentage)}%                                 
+| Annual Bonus: ${formatAsTwoDecimalPlaces(annualBonus)}                         PRSI: ${formatAsTwoDecimalPlaces(prsiAmount)}%                                        
+|                                               Cycle to work: ${formatAsTwoDecimalPlaces(cycleToWorkDeduction)}                             
+| ----------------------------------------------------------------------- 
+| Total Deduction: ${formatAsTwoDecimalPlaces(totalDeductions)}                                                
+| ----------------------------------------------------------------------- 
+|                            Net Salary: ${formatAsTwoDecimalPlaces(netSalary)}                           
+| ----------------------------------------------------------------------- 
+""")}
 
 
