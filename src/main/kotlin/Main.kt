@@ -1,12 +1,10 @@
 fun main(args: Array<String>) {
-        println("Payslip Printer")
-
     val firstName= "Joe"
     val surname= "Soap"
     val gender = 'm'
     val fullName = getFullName(firstName, surname, gender).toUpperCase()
     println("$fullName")
-    val employeeId = 6143
+    /*val employeeId = 6143
     val grossSalary = 67543.21
     val payePercentage = 38.5
     val prsiPercentage = 5.2
@@ -18,8 +16,10 @@ fun main(args: Array<String>) {
     println("Gross Monthly Pay: ${getGrossMonthlyPay(grossSalary, annualBonus)}")
     println("Total Monthly Deductions: ${getTotalMonthlyDeductions(grossSalary, payePercentage, prsiPercentage, cycleToWorkDeduction)}")
     println("Net Monthly Pay: ${getNetMonthlyPay(grossSalary, annualBonus, payePercentage, prsiPercentage, cycleToWorkDeduction)}")
-    printPayslip(employeeId, fullName, grossSalary, payePercentage, prsiPercentage, annualBonus, cycleToWorkDeduction)
-        println("\n")
+    printPayslip(employeeId, fullName, grossSalary, payePercentage, prsiPercentage, annualBonus, cycleToWorkDeduction)*/
+    val payslipString = getPayslip()
+    println(payslipString)
+    println("\n")
         }
 
 //function returns the formatted string to two decimal places
@@ -38,7 +38,7 @@ fun getFullName(firstName: String, surname: String, gender: Char): String {
     }
 }
 
-
+/*
 fun getMonthlySalary(grossSalary: Double): String {
     return twoDecimalPlaces(grossSalary / 12)
 }
@@ -65,8 +65,8 @@ fun getTotalMonthlyDeductions(monthlyPRSI: Double, monthlyPAYE: Double, cycleToW
 fun getNetMonthlyPay(grossMonthlyPay: Double, totalMonthlyDeductions: Double): String {
     return twoDecimalPlaces(grossMonthlyPay - totalMonthlyDeductions)
 }
-
-fun printPayslip(){
+*/
+fun getPayslip(): String{
     val firstName = "joe"
     val surname = "soap"
     val gender = 'm'
@@ -86,7 +86,7 @@ fun printPayslip(){
     val fullName = getFullName(firstName, surname, gender).toUpperCase()
 
 
-    println("""
+    return """
 | ----------------------------------------------------------------------- 
 |                           Employee Payslip                                                     
 | ----------------------------------------------------------------------- 
@@ -102,6 +102,7 @@ fun printPayslip(){
 | ----------------------------------------------------------------------- 
 |                            Net Salary: ${twoDecimalPlaces(netSalary)}                           
 | ----------------------------------------------------------------------- 
-""")}
+"""
+}
 
 
