@@ -6,7 +6,19 @@ fun main(args: Array<String>) {
     val gender = 'm'
     val fullName = getFullName(firstName, surname, gender).toUpperCase()
     println("$fullName")
-        printPayslip()
+    val employeeId = 6143
+    val grossSalary = 67543.21
+    val payePercentage = 38.5
+    val prsiPercentage = 5.2
+    val annualBonus = 1450.50
+    val cycleToWorkDeduction = 54.33
+    println("Monthly Salary: ${getMonthlySalary(grossSalary)}")
+    println("Monthly PRSI: ${getMonthlyPRSI(grossSalary, prsiPercentage)}")
+    println("Monthly PAYE: ${getMonthlyPAYE(grossSalary, payePercentage)}")
+    println("Gross Monthly Pay: ${getGrossMonthlyPay(grossSalary, annualBonus)}")
+    println("Total Monthly Deductions: ${getTotalMonthlyDeductions(grossSalary, payePercentage, prsiPercentage, cycleToWorkDeduction)}")
+    println("Net Monthly Pay: ${getNetMonthlyPay(grossSalary, annualBonus, payePercentage, prsiPercentage, cycleToWorkDeduction)}")
+    printPayslip(employeeId, fullName, grossSalary, payePercentage, prsiPercentage, annualBonus, cycleToWorkDeduction)
         println("\n")
         }
 
@@ -25,6 +37,35 @@ fun getFullName(firstName: String, surname: String, gender: Char): String {
         "$firstName $surname"
     }
 }
+
+
+fun getMonthlySalary(grossSalary: Double): String {
+    return twoDecimalPlaces(grossSalary / 12)
+}
+
+fun getMonthlyPRSI(grossSalary: Double, prsiPercentage: Double): String {
+    val monthlySalary = getMonthlySalary(grossSalary)
+    return twoDecimalPlaces(monthlySalary * (prsiPercentage / 100))
+}
+
+fun getMonthlyPAYE(grossSalary: Double, payePercentage: Double): String {
+    val monthlySalary = getMonthlySalary(grossSalary)
+    return twoDecimalPlaces(monthlySalary * (payePercentage / 100))
+}
+
+fun getGrossMonthlyPay(grossSalary: Double, annualBonus: Double): String {
+    val monthlySalary = getMonthlySalary(grossSalary)
+    return twoDecimalPlaces(monthlySalary + (annualBonus / 12))
+}
+
+fun getTotalMonthlyDeductions(monthlyPRSI: Double, monthlyPAYE: Double, cycleToWorkMonthlyDeduction: Double): String {
+    return twoDecimalPlaces(monthlyPRSI + monthlyPAYE + cycleToWorkMonthlyDeduction)
+}
+
+fun getNetMonthlyPay(grossMonthlyPay: Double, totalMonthlyDeductions: Double): String {
+    return twoDecimalPlaces(grossMonthlyPay - totalMonthlyDeductions)
+}
+
 fun printPayslip(){
     val firstName = "joe"
     val surname = "soap"
