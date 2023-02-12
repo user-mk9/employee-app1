@@ -15,7 +15,7 @@ fun twoDecimalPlaces(value: Double): String {
     return "%.2f".format(value)
 }
 
-//function takes in two parameters fName and sName and returns full name in the format of fName sName with uppercase
+//this function takes in two parameters fName and sName and returns full name in the format of fName sName with uppercase
 fun getFullName(firstName: String, surname: String, gender: Char): String {
     return if (gender == 'm') {
         "Mr $firstName $surname"
