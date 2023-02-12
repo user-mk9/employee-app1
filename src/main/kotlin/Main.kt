@@ -65,7 +65,7 @@ fun getTotalMonthlyDeductions(monthlyPRSI: Double, monthlyPAYE: Double, cycleToW
 fun getNetMonthlyPay(grossMonthlyPay: Double, totalMonthlyDeductions: Double): String {
     return twoDecimalPlaces(grossMonthlyPay - totalMonthlyDeductions)
 }
-*/
+**/
 fun getPayslip(): String{
     val firstName = "joe"
     val surname = "soap"
